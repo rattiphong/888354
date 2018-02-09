@@ -1,0 +1,53 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+        $(document).ready(function(){
+    $( "#random" ).click(function() {
+        var max = 999;
+        var min = -999;
+        var ran_1 = Math.floor(Math.random() * (max - min + 1) + min);
+        var ran_2 = Math.floor(Math.random() * (max - min + 1) + min);
+
+        $('#sp1').html(ran_1);
+        $('#sp2').html(ran_2);
+        });
+    });
+    
+$( "#send_ans").click(function() {
+    var result = $('#ans').val();
+        var num1 = $("#sp1").html();
+        var num2 = $("#sp2").html();
+        var sum = parseInt(num1) + parseInt(num2);
+        var show = "";
+        if(result == sum){
+            show = "That's correct";
+            $('#output').css('color','green');
+        }else{
+            show = "That's wrong. The answer is";
+            $('#output').css('color','red');
+        }
+        $('#output').html(show);
+});
+   
+    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Ex - Randdom Number for Answer</h1>
+        <hr>
+        <button id="random">Randdom Number</button>
+        <br><br>
+        <span id="sp1"></span> + <span id="sp2"></span> = <input type="text" id="ans">
+        <br><br>
+        <button id="send_ans">Send Answer</button>
+        <br><br>
+        Result : <span id="output"></span>
+</center>
+</body>
+</html>
